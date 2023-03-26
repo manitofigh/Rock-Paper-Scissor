@@ -2,12 +2,10 @@
 #include <cstdlib>
 #include <ctime>
 #include <algorithm>
-#include <string>
 using namespace std;
 
 string choice;
-int userScore = 0;
-int botScore = 0;
+int userScore, botScore, roundNumber = 0;
 
 string computerChoice(){
     srand(time(0));
@@ -15,6 +13,10 @@ string computerChoice(){
     if (computerChoice == 1) return "Rock";
     else if (computerChoice == 2) return "Paper";
     else return "Scissor";
+}
+
+void checkResult(){
+    if (choice == "rock" && computerChoice() == "")
 }
 
 int main(){
@@ -25,10 +27,12 @@ int main(){
     cout << "***                              ***" << endl;
     cout << "************************************" << endl;
 
+    do {
     cout << endl;
     cout << "*********************" << endl;
     cout << "**  Your score: " << userScore << "  **" << endl;
     cout << "**  Bot score: " << botScore <<  "   **" << endl;
+    cout << "**  Round number: " << botScore <<  "   **" << endl;
     cout << "*********************" << endl;
 
     cout << "\nChoose your choice: " << endl;
@@ -37,7 +41,11 @@ int main(){
     cout << "3) Scissors" << endl;
     cin >> choice;
     transform(choice.begin(), choice.end(), choice.begin(), ::tolower);
-    // if ((choice == "1" || choice == "rock") && ){
+    checkResult();
 
-    // }
+    }
+    while (userScore != 3 || botScore != 3);
+
+    
+
 }
