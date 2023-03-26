@@ -21,6 +21,7 @@ int main(){
     cout << "\n************************************" << endl;
     cout << "***                              ***" << endl;
     cout << "***   Welcome to the RPS game!   ***" << endl;
+    cout << "***       First to 3 wins!       ***" << endl;
     cout << "***                              ***" << endl;
     cout << "************************************" << endl;
 
