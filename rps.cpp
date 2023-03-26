@@ -100,7 +100,7 @@ int main(){
     cout << "*********************" << endl;
     cout << "**  Your score: " << userScore << "  **" << endl;
     cout << "**  Bot score: " << botScore <<  "   **" << endl;
-    cout << "**  Round number: " << botScore <<  "   **" << endl;
+    cout << "**  Round number: " << roundNumber <<  "   **" << endl;
     cout << "*********************" << endl;
 
     cout << "\nChoose your choice: " << endl;
