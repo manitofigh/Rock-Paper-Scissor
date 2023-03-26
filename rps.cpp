@@ -4,8 +4,9 @@
 #include <algorithm>
 using namespace std;
 
-string choice;
-int userScore, botScore, roundNumber = 0;
+string userChoice;
+unsigned int userScore, botScore = 0;
+unsigned int roundNumber = 1; 
 
 string computerChoice(){
     srand(time(0));
@@ -16,20 +17,20 @@ string computerChoice(){
 }
 
 void checkResult(){
-    if (choice == "rock" && computerChoice() == "Rock"){
+    if ((userChoice == "rock" || userChoice == "1") && computerChoice() == "Rock"){
         cout << "\nComputer's choice: Rock" << endl;
         cout << "Your choice: Rock" << endl;
         cout << "No winner for this round!";
         roundNumber ++;
     }
-    else if (choice == "rock" && computerChoice() == "Paper"){
+    else if ((userChoice == "rock" || userChoice == "1") && computerChoice() == "Paper"){
         cout << "\nComputer's choice: Paper" << endl;
         cout << "Your choice: Rock" << endl;
         cout << "Computer won this round!" << endl;
         roundNumber ++;
         botScore ++;
     }
-    else if (choice == "rock" && computerChoice() == "Scissors"){
+    else if ((userChoice == "rock" || userChoice == "1") && computerChoice() == "Scissors"){
         cout << "\nComputer's choice: Scissors" << endl;
         cout << "Your choice: Rock" << endl;
         cout << "You won this round!" << endl;
@@ -37,7 +38,7 @@ void checkResult(){
         userScore ++;
     }
 
-    else if (choice == "paper" && computerChoice() == "Rock") {
+    else if ((userChoice == "paper" || userChoice == "2") && computerChoice() == "Rock") {
         cout << "\nComputer's choice: Rock" << endl;
         cout << "Your choice: Paper" << endl;
         cout << "You won this round!" << endl;
@@ -45,22 +46,22 @@ void checkResult(){
         userScore ++;
     }
 
-    else if (choice == "paper" && computerChoice() == "Paper") {
+    else if ((userChoice == "paper" || userChoice == "2") && computerChoice() == "Paper") {
         cout << "\nComputer's choice: Paper" << endl;
         cout << "Your choice: Paper" << endl;
         cout << "No winner for this round!";
         roundNumber ++;
     }
 
-    else if (choice == "paper" && computerChoice() == "Scissors"){
-        cout << "\nComputer's choice: Paper" << endl;
-        cout << "Your choice: Scissors" << endl;
+    else if ((userChoice == "paper" || userChoice == "2") && computerChoice() == "Scissors"){
+        cout << "\nComputer's choice: Scissors" << endl;
+        cout << "Your choice: Paper" << endl;
         cout << "Computer won this round!" << endl;
         roundNumber ++;
         botScore ++;
     }
 
-    else if (choice == "scissors" && computerChoice() == "Rock"){
+    else if ((userChoice == "scissors" || userChoice == "3") && computerChoice() == "Rock"){
         cout << "\nComputer's choice: Rock" << endl;
         cout << "Your choice: Scissors" << endl;
         cout << "Computer won this round!" << endl;
@@ -68,7 +69,7 @@ void checkResult(){
         botScore ++;
     }
 
-    else if (choice == "scissors" && computerChoice() == "Paper"){
+    else if ((userChoice == "scissors" || userChoice == "3") && computerChoice() == "Paper"){
         cout << "\nComputer's choice: Paper" << endl;
         cout << "Your choice: Scissors" << endl;
         cout << "You won this round!" << endl;
@@ -76,14 +77,14 @@ void checkResult(){
         userScore ++;
     }
 
-    else if (choice == "scissors" && computerChoice() == "Scissors"){
+    else if ((userChoice == "scissors" || userChoice == "3") && computerChoice() == "Scissors"){
         cout << "\nComputer's choice: Scissors" << endl;
         cout << "Your choice: Scissors" << endl;
         cout << "No winner for this round!";
         roundNumber ++;
     }
 
-    else cout << "Your input could not be validated" << endl;
+    else cout << "\n** Your input could not be validated **" << endl;
 
 }
 
@@ -95,23 +96,24 @@ int main(){
     cout << "***                              ***" << endl;
     cout << "************************************" << endl;
 
-    do {
-    cout << endl;
-    cout << "*********************" << endl;
-    cout << "**  Your score: " << userScore << "  **" << endl;
-    cout << "**  Bot score: " << botScore <<  "   **" << endl;
-    cout << "**  Round number: " << roundNumber <<  "   **" << endl;
-    cout << "*********************" << endl;
+    cout << "\n=======================================" << endl;
 
-    cout << "\nChoose your choice: " << endl;
-    cout << "1) Rock" << endl;
-    cout << "2) Paper" << endl;
-    cout << "3) Scissors" << endl;
-    cin >> choice;
-    transform(choice.begin(), choice.end(), choice.begin(), ::tolower);
-    checkResult();
+    while (userScore < 2 || botScore < 2){
+        cout << endl;
+        cout << "***********************" << endl;
+        cout << "**  Your score: " << userScore << "    **" << endl;
+        cout << "**  Bot score: " << botScore <<  "     **" << endl;
+        cout << "**  Round number: " << roundNumber <<  "  **" << endl;
+        cout << "***********************" << endl;
+    
+        cout << "\nChoose your choice: " << endl;
+        cout << "1) Rock" << endl;
+        cout << "2) Paper" << endl;
+        cout << "3) Scissors" << endl;
+        cin >> userChoice;
+        transform(userChoice.begin(), userChoice.end(), userChoice.begin(), ::tolower);
+        checkResult();
     }
-    while (userScore != 3 || botScore != 3);
 
     if (userScore == 3){
         cout << "**************" << endl;
