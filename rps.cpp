@@ -131,7 +131,7 @@ int main(){
     }
 
     else if (botScore == 3) {
-        cout << "***************" << endl;
+        cout << "\n***************" << endl;
         cout << "** You Lost! **" << endl;
         cout << "***************" << endl;
     }
