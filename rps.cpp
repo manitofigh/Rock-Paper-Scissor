@@ -125,7 +125,8 @@ int main(){
     }
 
     if (userScore == 3){
-        cout << "\n**************" << endl;
+        cout << endl;
+        cout << "**************" << endl;
         cout << "** You Won! **" << endl;
         cout << "**************" << endl;
     }
