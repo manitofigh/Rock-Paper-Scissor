@@ -1,1 +1,1 @@
-Play RPS with a robot. There's no cheating. I promise.
+Play pseudo-random RPS with the computer.
